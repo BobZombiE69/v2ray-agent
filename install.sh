@@ -258,7 +258,7 @@ initVar() {
     hysteriaClientUploadSpeed=
 
     # Reality
-    realityPrivateKey="QMRjlH9UWgxZn6DvbprCejU6O5XN5bC4OYvmhNtR4FI"
+    realityPrivateKey=
     realityServerNames=
     realityDestDomain="www.speedtest.net:443"
 
@@ -524,7 +524,7 @@ readHysteriaConfig() {
 # 读取xray reality配置
 readXrayCoreRealityConfig() {
     currentRealityServerNames=
-    currentRealityPublicKey="_1_ZFKdSfdMNB4Gu0C83ShZgvw237Vv8qC91kl6u2z4"
+    currentRealityPublicKey=
     currentRealityPrivateKey=
     currentRealityPort=
 
