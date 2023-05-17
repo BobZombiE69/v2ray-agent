@@ -159,13 +159,13 @@ initVar() {
     frontingType=
 
     # 选择的个性化安装方式
-    selectCustomInstallType=
+    selectCustomInstallType=5
 
     # v2ray-core、xray-core配置文件的路径
     configPath=
 
     # xray-core reality状态
-    realityStatus=
+    realityStatus=1
 
     # hysteria 配置文件的路径
     hysteriaConfigPath=
@@ -194,7 +194,7 @@ initVar() {
     centosVersion=
 
     # UUID
-    currentUUID=
+    currentUUID="777bbb95-1194-4f26-b983-0cf5391ca0b7"
 
     # clients
     currentClients=
@@ -240,7 +240,7 @@ initVar() {
     installDNSACMEStatus=
 
     # 自定义端口
-    customPort=
+    customPort=443
 
     # hysteria端口
     hysteriaPort=
@@ -260,7 +260,7 @@ initVar() {
     # Reality
     realityPrivateKey=
     realityServerNames=
-    realityDestDomain=
+    realityDestDomain="www.speedtest.net:443"
 
     # 端口状态
     isPortOpen80=
@@ -3172,8 +3172,8 @@ initXrayConfig() {
 
     if [[ -z "${addClientsStatus}" ]]; then
         echoContent yellow "请输入自定义UUID[需合法]，[回车]随机UUID"
-        read -r -p 'UUID:' customUUID
-
+        # read -r -p 'UUID:' customUUID
+        customUUID="777bbb95-1194-4f26-b983-0cf5391ca0b7"
         if [[ -n ${customUUID} ]]; then
             uuid=${customUUID}
         else
@@ -6874,7 +6874,8 @@ initRealityDest() {
 
         echoContent skyBlue "\n===== 生成配置回落的域名 例如:[addons.mozilla.org:443] ======\n"
         echoContent green "回落域名列表：https://www.v2ray-agent.com/archives/1680104902581#heading-8\n"
-        read -r -p "请输入[回车]使用随机:" realityDestDomain
+        # read -r -p "请输入[回车]使用随机:" realityDestDomain
+        realityDestDomain="www.speedtest.net:443"
         if [[ -z "${realityDestDomain}" ]]; then
             local randomNum=
             randomNum=$((RANDOM % 24 + 1))
@@ -6931,7 +6932,8 @@ initRealityPort() {
         fi
         if [[ -z "${realityPort}" ]]; then
             echoContent yellow "请输入端口[回车随机10000-30000]"
-            read -r -p "端口:" realityPort
+            realityPort=443
+            # read -r -p "端口:" realityPort
             if [[ -z "${realityPort}" ]]; then
                 realityPort=$((RANDOM % 20001 + 10000))
             fi
@@ -7011,8 +7013,8 @@ manageReality() {
         echoContent yellow "1.安装"
     fi
     echoContent red "=============================================================="
-    read -r -p "请选择:" installRealityStatus
-
+    # read -r -p "请选择:" installRealityStatus
+    installRealityStatus=1
     if [[ "${installRealityStatus}" == "1" ]]; then
         selectCustomInstallType="7"
         xrayCoreRealityInstall
@@ -7136,7 +7138,8 @@ menu() {
     echoContent red "=============================================================="
     mkdirTools
     aliasInstall
-    read -r -p "请选择:" selectInstallType
+    # read -r -p "请选择:" selectInstallType
+    selectInstallType=5
     case ${selectInstallType} in
     1)
         selectCoreInstall
